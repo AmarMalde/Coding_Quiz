@@ -3,6 +3,14 @@ var startScreenClass = document.getElementById("start-screen");
 var questionsScreen = document.getElementById("questions");
 var questionOnScreen = document.getElementById("question-title");
 
+var AnswerButton1 = document.getElementById("option1");
+var AnswerButton2 = document.getElementById("option2");
+var AnswerButton3 = document.getElementById("option3");
+var AnswerButton4 = document.getElementById("option4");
+
+
+
+
 var questionIndex = 0;
 
 startButton.addEventListener("click", function() {
@@ -20,17 +28,19 @@ startButton.addEventListener("click", function() {
 
     var question = returnQuestions();
 
-    //this will store the answers as a string in an array
-
-    var answers = returnAnswers();
-
     //displaying the question on the screen
 
     questionOnScreen.textContent = question
 
+    //this will store the answers as a string in an array
+    var answers = returnAnswers();
+
     //displaying the answers
 
-    
+    AnswerButton1.textContent = answers[0]
+    AnswerButton2.textContent = answers[1]
+    AnswerButton3.textContent = answers[2]
+    AnswerButton4.textContent = answers[3]
 
     //after answer is given
     questionIndex ++;
