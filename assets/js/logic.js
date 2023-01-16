@@ -1,29 +1,41 @@
 var startButton = document.getElementById("start");
 var startScreenClass = document.getElementById("start-screen");
+var endScreenClass = document.getElementById("end-screen");
 var questionsScreen = document.getElementById("questions");
 var questionOnScreen = document.getElementById("question-title");
 var timerValue = document.getElementById("time");
+var finalScoreValue = document.getElementById("final-score");
+
+var playerInitals = document.getElementById("submit");
 
 var answerButtonsDiv = document.getElementById("choicesButtons");
-
 var answerButton1 = document.getElementById("option1");
 var answerButton2 = document.getElementById("option2");
 var answerButton3 = document.getElementById("option3");
 var answerButton4 = document.getElementById("option4");
 
-
-var startTime = 90
+var startTime = 90;
+var score = 0;
 
 var questionIndex = 0;
 
 startButton.addEventListener("click", function () {
 
-    setInterval(function () {
+    startTime = 90;
+    score = 0;
+
+    var quizInterval = setInterval(function () {
+
+        if (startTime < 1) {
+
+            endScreen();
+
+            clearInterval(quizInterval);
+        }
 
         if (startTime == 90) {
-            //hides the start screen by removing the class start and adding hide
-            startScreenClass.classList.remove("start");
-            startScreenClass.classList.add("hide");
+            //hides all screens (divs)
+            hideAllScreens();
 
             //displays the question screen by removing the class hide and adding start
             questionsScreen.classList.remove("hide");
@@ -36,30 +48,62 @@ startButton.addEventListener("click", function () {
         timerValue.textContent = startTime;
         startTime--;
 
-        answerButtonsDiv.addEventListener("click", function (event) {
-            
-            if (event.target.matches(".answerButton")) {
-
-                if (event.target.getAttribute('id') != questionsObject[questionIndex].correctAnswer) {
-                    startTime -= 10;
-                }
-                console.log("clicked")
-                questionIndex++;
-                updateQuestionScreen();
-
-            }
-        });
-
-        //add 1 to question index (if quesion index = questionsObject.length then show final screen)
-        //rerun updateQuestionScreen
-
-        
-
     }, 1000);
-
 
 });
 
+function endScreen() {
+
+    //hides all screens (divs)
+    hideAllScreens()
+
+    //display the end screen by removing the class hide and adding start
+    endScreenClass.classList.remove("hide");
+    endScreenClass.classList.add("start");
+
+    finalScoreValue.textContent = score;
+}
+
+function hideAllScreens() {
+
+    questionsScreen.classList.remove("start");
+    questionsScreen.classList.add("hide");
+
+    startScreenClass.classList.remove("start");
+    startScreenClass.classList.add("hide");
+
+    endScreenClass.classList.remove("start");
+    endScreenClass.classList.add("hide");
+
+}
+
+playerInitals.addEventListener("click", function() {
+    
+
+
+
+})
+
+
+answerButtonsDiv.addEventListener("click", function (event) {
+
+    if (event.target.matches(".answerButton")) {
+
+        if (event.target.getAttribute('id') != questionsObject[questionIndex].correctAnswer) {
+            startTime -= 10;
+        }
+
+        if (questionIndex < questionsObject.length - 1) {
+            questionIndex++;
+            updateQuestionScreen();
+
+        } else {
+            score = startTime;
+            startTime = 0;
+        }
+    }
+
+});
 
 function updateQuestionScreen() {
 

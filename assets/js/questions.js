@@ -16,28 +16,27 @@ var questionsObject = [
         correctAnswer: "option2"
     },
     {
-        question: "What is 1+2",
+        question: "What is 2+2",
         option1: "1",
         option2: "2",
         option3: "3",
         option4: "4",
-        correctAnswer: "option3"
+        correctAnswer: "option4"
     },
     {
-        question: "What is 1+2",
+        question: "What is 1+0",
         option1: "1",
         option2: "2",
         option3: "3",
         option4: "4",
-        correctAnswer: "option3"
+        correctAnswer: "option1"
     },
     {
-        question: "What is 1+2",
+        question: "What is 1+3",
         option1: "1",
         option2: "2",
         option3: "3",
         option4: "4",
-        correctAnswer: "option3"
+        correctAnswer: "option4"
     }
 ]
-
