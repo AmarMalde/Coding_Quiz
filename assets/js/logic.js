@@ -6,7 +6,9 @@ var questionOnScreen = document.getElementById("question-title");
 var timerValue = document.getElementById("time");
 var finalScoreValue = document.getElementById("final-score");
 
-var playerInitals = document.getElementById("submit");
+var submitButton = document.getElementById("submit");
+
+var highscoresButton = document.getElementById("highscores");
 
 var answerButtonsDiv = document.getElementById("choicesButtons");
 var answerButton1 = document.getElementById("option1");
@@ -37,6 +39,8 @@ startButton.addEventListener("click", function () {
             //hides all screens (divs)
             hideAllScreens();
 
+            if (score<0) {score = 0}
+
             //displays the question screen by removing the class hide and adding start
             questionsScreen.classList.remove("hide");
             questionsScreen.classList.add("start");
@@ -45,10 +49,10 @@ startButton.addEventListener("click", function () {
             updateQuestionScreen();
         }
 
-        timerValue.textContent = startTime;
-        startTime--;
+        timerValue.textContent = ~~startTime;
+        startTime -= 0.1
 
-    }, 1000);
+    }, 100);
 
 });
 
@@ -61,7 +65,7 @@ function endScreen() {
     endScreenClass.classList.remove("hide");
     endScreenClass.classList.add("start");
 
-    finalScoreValue.textContent = score;
+    finalScoreValue.textContent = ~~score;
 }
 
 function hideAllScreens() {
@@ -77,9 +81,31 @@ function hideAllScreens() {
 
 }
 
-playerInitals.addEventListener("click", function() {
-    
+submitButton.addEventListener("click", function() {
 
+    var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    
+    var playerInitials = document.getElementById('initials').value;
+    
+    var scoreAndInitials = {
+        score: score,
+        initials: playerInitials
+    };
+
+    highScores.push(scoreAndInitials);
+
+    highScores.sort((a,b) => b.score - a.score)
+
+    highScores.splice(5);
+
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+
+    console.log(highScores)
+})
+
+highscoresButton.addEventListener("click", function() {
+
+    windows.location = "./highscores.html"
 
 
 })
@@ -98,7 +124,9 @@ answerButtonsDiv.addEventListener("click", function (event) {
             updateQuestionScreen();
 
         } else {
-            score = startTime;
+            if (score<0) {score = 0};
+
+            score = ~~startTime;
             startTime = 0;
         }
     }
