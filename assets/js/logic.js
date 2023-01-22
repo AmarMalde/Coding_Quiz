@@ -89,7 +89,7 @@ submitButton.addEventListener("click", function() {
     
     var scoreAndInitials = {
         score: score,
-        initials: playerInitials
+        initials: playerInitials.toUpperCase()
     };
 
     highScores.push(scoreAndInitials);

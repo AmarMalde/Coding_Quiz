@@ -2,7 +2,7 @@
 var clearButton = document.getElementById("clear");
 
 clearButton.addEventListener('click', function () {
-    // window.localStorage.clear();
+    localStorage.clear()
 
 });
 
