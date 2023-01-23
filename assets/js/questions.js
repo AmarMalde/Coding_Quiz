@@ -24,19 +24,19 @@ var questionsObject = [
         correctAnswer: "option4"
     },
     {
-        question: "What is 1+0",
-        option1: "1",
-        option2: "2",
-        option3: "3",
-        option4: "4",
+        question: "What does the 'length' function used for?",
+        option1: "Returning the length of an object, string, array etc.",
+        option2: "Calculating how long a program has been running for",
+        option3: "Length isn't a real function",
+        option4: "Used for converting units ",
         correctAnswer: "option1"
     },
     {
-        question: "What is 1+3",
-        option1: "1",
-        option2: "2",
-        option3: "3",
-        option4: "4",
+        question: "Which of the below is the correct tag for a list item",
+        option1: "<listItem></listItem>",
+        option2: "<oL></oL>",
+        option3: "<ul></ul>",
+        option4: "<li></li>",
         correctAnswer: "option4"
     }
 ]
