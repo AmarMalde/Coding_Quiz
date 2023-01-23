@@ -8,7 +8,7 @@ var questionsObject = [
         correctAnswer: "option1"
     },
     {
-        question: "What is an integer",
+        question: "What is an integer?",
         option1: "a letter",
         option2: "a number",
         option3: "True or False",
@@ -16,11 +16,11 @@ var questionsObject = [
         correctAnswer: "option2"
     },
     {
-        question: "What is 2+2",
-        option1: "1",
-        option2: "2",
-        option3: "3",
-        option4: "4",
+        question: "Which is these correctly assigns a value to a new variable?",
+        option1: "num = 1",
+        option2: "lat num == 1",
+        option3: "num == 1",
+        option4: "var num = 1",
         correctAnswer: "option4"
     },
     {

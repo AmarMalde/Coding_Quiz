@@ -1,3 +1,6 @@
+
+//lines 4 to 20 assign vales to various parts of the HTML using thier ID. This is make calling these easier throughout the code
+
 var startButton = document.getElementById("start");
 var startScreenClass = document.getElementById("start-screen");
 var endScreenClass = document.getElementById("end-screen");
@@ -16,16 +19,19 @@ var answerButton2 = document.getElementById("option2");
 var answerButton3 = document.getElementById("option3");
 var answerButton4 = document.getElementById("option4");
 
+//initialising variables for later use. Globals scope as they are used in different functions
 var startTime = 90;
 var score = 0;
-
 var questionIndex = 0;
 
+//event listener to execute function when the user clicks start quiz 
 startButton.addEventListener("click", function () {
 
+    //sets variables back to base values. Sets everytime user clicks on start quiz incase quiz is ran multiple times
     startTime = 90;
     score = 0;
 
+    // executes function ever 100ms. This is to update the time remaining using the start time variable
     var quizInterval = setInterval(function () {
 
         if (startTime < 1) {
