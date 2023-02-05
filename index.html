@@ -10,11 +10,16 @@
   </head>
 
   <body>
+    <!-- div contains link so the user can view the top 5 highscores -->
     <div class="scores" id="highscores"><a href="highscores.html">View Highscores</a></div>
 
+    <!-- div wil contain the time remaining when user is answering quiz -->
     <div class="timer">Time: <span id="time">0</span></div>
 
+
     <div class="wrapper">
+
+      <!-- div contains the screen the user will see upon initally loading the website -->
       <div id="start-screen" class="start">
         <h1>Coding Quiz Challenge</h1>
         <p>
@@ -25,6 +30,8 @@
         <button id="start">Start Quiz</button>
       </div>
 
+      <!-- div will dynamically update using js as the user is 'playing' the quiz -->
+
       <div id="questions" class="hide">
         <h2 id="question-title"></h2>
         <div id="choicesButtons" class="choices">
@@ -34,6 +41,8 @@
           <button type="button" id="option4" class="answerButton"></button>
         </div>
       </div>
+
+      <!-- div contains the screen the user will see when the quiz ends  -->
 
       <div id="end-screen" class="hide">
         <h2>All done!</h2>

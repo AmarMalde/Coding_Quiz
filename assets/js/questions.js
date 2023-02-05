@@ -1,3 +1,5 @@
+//'below code contains the questions and answers for the quiz.
+// stored in dictionary's to aid in dynamically finding the answer in javascript
 var questionsObject = [
     {
         question: "What brackets do you use for an array?",
